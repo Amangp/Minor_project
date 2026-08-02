@@ -142,9 +142,11 @@ if __name__ == "__main__":
     print("🌐 Starting Gradio Web Interface...")
     print("="*50 + "\n")
     
+    import os
+
+    port = int(os.environ.get("PORT", 7860))
+
     demo.launch(
-        share=False,  # Set to True if you want a public link
-        server_name="127.0.0.1",
-        server_port=7860,
-        show_error=True
+        server_name="0.0.0.0",
+        server_port=port
     )
